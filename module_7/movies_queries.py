@@ -4,36 +4,6 @@
 #https://github.com/RachRoxIt/csd-310/blob/main/module_7/movies_queries.py
 
 
-import mysql.connector
-from mysql.connector import errorcode
-
-config = {
-    "port": "3006",
-    "user": "root",
-    "password": "Yodapop311!",
-    "host": "127.0.0.1",
-    "database": "movies",
-    "raise_on_warnings": True
-}
-
-try:
-    db = mysql.connector.connect(**config)
-
-    print("\n Database user {} connected to MYSQL on host {} with database {}".format(config["user"], config["host"],
-    config["database"]))
-
-    input("\n\n Press any key to continue...")
-
-except mysql.connector.Error as err:
-    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-        print(" The supplied username or password are invalid")
-
-    elif err.errno == errorcode.ER_BAD_DB_ERROR:
-        print(" The specified database does not exist")
-
-    else:
-        print(err)
-
 
 import mysql.connector
 from mysql.connector import errorcode
