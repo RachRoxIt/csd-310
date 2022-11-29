@@ -1,3 +1,9 @@
+#Rachel Cewe
+#11/29/22
+#Module 7.2 Table Queries
+#https://github.com/RachRoxIt/csd-310/blob/main/module_7/movies_queries.py
+
+
 import mysql.connector
 from mysql.connector import errorcode
 
