@@ -34,7 +34,17 @@ except mysql.connector.Error as err:
 
     else:
         print(err)
+finally:
+      db.close()
 
+print(" -- DISPLAYING Studio RECORDS -- ")
+cursor = db.cursor()
+StudioQuery = "SELECT studio_id, studio_name FROM studio"
+cursor.execute(StudioQuery)
+studios = cursor.fetchall()
+for studio in studios:
+    print("Studio ID: {}\nStudio Name: {}\n".format(studio[0], studio[1]))        
+             
 print(" -- DISPLAYING Genre RECORDS -- ")
 cursor = db.cursor()
 GenreQuery = "SELECT genre_id, genre_name FROM genre"
@@ -57,10 +67,4 @@ DirectorQuery = "SELECT film_name, film_director FROM film ORDER BY film_directo
 cursor.execute(DirectorQuery)
 directors = cursor.fetchall()
 for director in directors:
-    print("Film Name: {}\nDirector: {}\n".format(director[0], director[1]))
-
-
-db.close()
-
-
-    
+    print("Film Name: {}\nDirector: {}\n".format(director[0], director[1])
